@@ -18,9 +18,11 @@ CHAT_SESSION_SECRET=my-super-secret-string
 CHAT_AUTH_PW=my-super-secret-login-password
 ```
 
-3. (Optional): Exchange the ```favicon.ico``` (inside the ```public/``` directory)
+3. In your compose.yaml make sure to use the correct architecture (either ```chat:latest-amd64``` or ```chat:latest-arm64```)
 
-4. Run ```docker compose up -d```.
+4. (Optional): Exchange the ```favicon.ico``` (inside the ```public/``` directory)
+
+5. Run ```docker compose up -d```.
 
 ## Building from source
 To build from source use the command ```docker compose -f compose.dev.yaml up --build```.
