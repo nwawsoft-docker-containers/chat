@@ -1,0 +1,19 @@
+services:
+  chat:
+    image: ghcr.io/nwawsoft-docker-containers/chat:latest
+    restart: unless-stopped
+    networks:
+      - traefik-network
+    container_name: chat
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.chat.rule=Host(`${CHAT_DOMAIN}`)"
+      - "traefik.http.routers.chat.tls=true"
+      - "traefik.http.routers.chat.entrypoints=websecure"
+      - "traefik.http.services.chat.loadbalancer.server.port=${CHAT_PORT}"
+
+networks:
+  traefik-network:
+    external: true
