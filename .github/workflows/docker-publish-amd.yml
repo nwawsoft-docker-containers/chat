@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Build and Push Docker Image (AMD64)
 
 on:
   push:
@@ -12,7 +12,7 @@ env:
   IMAGE_NAME: nwawsoft-docker-containers/chat
 
 jobs:
-  build-and-push:
+  build-and-push-amd64:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -38,17 +38,17 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=ref,event=branch
-          type=ref,event=pr
-          type=semver,pattern={{version}}
-          type=semver,pattern={{major}}.{{minor}}.{{patch}}
-          type=raw,value=latest,enable={{is_default_branch}}
+          type=ref,event=branch,suffix=-amd64
+          type=ref,event=pr,suffix=-amd64
+          type=semver,pattern={{version}},suffix=-amd64
+          type=semver,pattern={{major}}.{{minor}}.{{patch}},suffix=-amd64
+          type=raw,value=latest-amd64,enable={{is_default_branch}}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
-        platforms: linux/amd64,linux/arm64
+        platforms: linux/amd64
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
