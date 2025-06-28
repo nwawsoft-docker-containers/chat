@@ -18,9 +18,9 @@ CHAT_SESSION_SECRET=my-super-secret-string
 CHAT_AUTH_PW=my-super-secret-login-password
 ```
 
-3. In your compose.yaml make sure to use the correct architecture (either ```chat:latest-amd64``` or ```chat:latest-arm64```)
+3. In ```compose.yaml``` make sure to use the correct architecture (either ```chat:latest-amd64``` or ```chat:latest-arm64```).
 
-4. (Optional): Exchange the ```favicon.ico``` (inside the ```public/``` directory)
+4. (Optional): Exchange the ```favicon.ico``` (inside the ```public/``` directory).
 
 5. Run ```docker compose up -d```.
 
