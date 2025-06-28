@@ -20,4 +20,7 @@ CHAT_AUTH_PW=my-super-secret-login-password
 
 3. (Optional): Exchange the ```favicon.ico``` (inside the ```public/``` directory)
 
-4. Run ```docker compose up -d --build``` (or ```docker-compose up -d --build```).
+4. Run ```docker compose up -d```.
+
+## Building from source
+To build from source use the command ```docker compose -f compose.dev.yaml up --build```.
