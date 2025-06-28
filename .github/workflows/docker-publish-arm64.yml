@@ -1,4 +1,4 @@
-name: Build and Push Docker Image (ARM64)
+name: Build and Push Docker Image (ARM v8)
 
 on:
   push:
@@ -12,7 +12,7 @@ env:
   IMAGE_NAME: nwawsoft-docker-containers/chat
 
 jobs:
-  build-and-push-arm64:
+  build-and-push-armv8:
     runs-on: ubuntu-latest
     permissions:
       contents: read
